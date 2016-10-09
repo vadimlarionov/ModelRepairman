@@ -10,6 +10,7 @@
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+.idea/watcherTasks.xml
 
 ## File-based project format:
 *.iws
