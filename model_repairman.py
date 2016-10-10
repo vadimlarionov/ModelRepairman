@@ -16,7 +16,7 @@ class ModelRepairman:
         self.to = to
 
     def psi(self):
-        return (1 / self.tno) / (1 / self.to)
+        return self.to / self.tno
 
     # P0
     def probability_initial_state(self, c):
@@ -54,17 +54,31 @@ class ModelRepairman:
     def computers_repair(self, c):
         return self.broken_length(c) - self.queue_length(c)
 
+    # ρ0 - коэффициент загрузки одного специалиста ремонтом компьютеров
+    def load_factor_specialist(self, c):
+        return self.computers_repair(c) / c
 
+    # n - среднее количество неисправных компьютеров
+    def average_broken_computers(self, c):
+        return self.n - self.broken_length(c)
 
+    # Tр - время пребывания компьютера в неисправном состоянии (в очереди на ремонт и ремонте)
+    def broken_computer_time(self, c):
+        l = self.broken_length(c)
+        return l * self.tno / (self.n - l)
 
+    # W - cреднее время нахождения компьютера в очереди на ремонт
+    def broken_computer_in_queue_time(self, c):
+        return self.broken_computer_time(c) - self.to
 
+    # ρe - коэффициент загрузки компьютера
+    def load_factor_computer(self, c):
+        return self.average_broken_computers(c) / self.n
 
+    # Tц - среднее время цикла для компьютера
+    def computer_cycle_time(self, c):
+        return self.broken_computer_time(c) + self.tno
 
-
-
-
-
-
-
-
-
+    # ρe / ρo
+    def ratio(self, c):
+        return self.load_factor_computer(c) / self.load_factor_specialist(c)
