@@ -4,7 +4,7 @@
 class Utils:
 
     @staticmethod
-    def to_str(object):
-        if isinstance(object, str):
-            return object
-        return '%.10f' % object
+    def to_str(obj):
+        if isinstance(obj, str):
+            return obj
+        return '%.5f' % obj

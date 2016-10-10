@@ -68,6 +68,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         self.add_row_to_table('ρe / ρo', model.ratio(c1),
                               model.ratio(c2),
                               model.ratio(c3))
+        self.tableWidget.resizeColumnsToContents()
 
 
 if __name__ == '__main__':
