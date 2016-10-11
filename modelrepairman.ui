@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1066</width>
+    <width>1201</width>
     <height>575</height>
    </rect>
   </property>
@@ -16,6 +16,30 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="1">
     <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="c_lineEdit">
+       <property name="minimumSize">
+        <size>
+         <width>220</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>220</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1, 2, 3</string>
+       </property>
+      </widget>
+     </item>
      <item row="4" column="3">
       <widget class="QLabel" name="label_5">
        <property name="font">
@@ -53,13 +77,13 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>220</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>70</width>
+         <width>220</width>
          <height>16777215</height>
         </size>
        </property>
@@ -69,7 +93,7 @@
         </font>
        </property>
        <property name="text">
-        <string>1000</string>
+        <string>800, 800, 800</string>
        </property>
       </widget>
      </item>
@@ -85,7 +109,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Среднее время ремонта одного компьютера&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
-        <string>tо</string>
+        <string>tоi</string>
        </property>
       </widget>
      </item>
@@ -101,11 +125,11 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Количество компьютеров&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
-        <string>N</string>
+        <string>Ni</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="4">
+     <item row="8" column="4">
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -134,19 +158,19 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>120</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>70</width>
+         <width>220</width>
          <height>16777215</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>11</pointsize>
         </font>
        </property>
        <property name="toolTip">
@@ -156,7 +180,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
-        <string>10</string>
+        <string>100, 100, 100</string>
        </property>
       </widget>
      </item>
@@ -169,33 +193,6 @@
        </property>
        <property name="text">
         <string>шт.</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2" colspan="2">
-      <widget class="QPushButton" name="calculateButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
-       </property>
-       <property name="text">
-        <string>Рассчитать</string>
        </property>
       </widget>
      </item>
@@ -222,9 +219,15 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
-         <width>70</width>
+         <width>220</width>
          <height>16777215</height>
         </size>
        </property>
@@ -234,7 +237,7 @@
         </font>
        </property>
        <property name="text">
-        <string>10</string>
+        <string>8, 8, 8</string>
        </property>
       </widget>
      </item>
@@ -250,7 +253,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Среднее время наработки на отказ одного компьютера&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
-        <string>tно</string>
+        <string>tноi</string>
        </property>
       </widget>
      </item>
@@ -266,7 +269,7 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="4">
+     <item row="9" column="4">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -282,7 +285,7 @@
        </property>
       </spacer>
      </item>
-     <item row="3" column="5" rowspan="5">
+     <item row="3" column="5" rowspan="7">
       <widget class="QTableWidget" name="tableWidget">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
@@ -355,6 +358,125 @@
          </font>
         </property>
        </column>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QPushButton" name="calculateButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Рассчитать</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Заработная плата специалиста за 1 час&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Zi</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string>Ci</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Финансовые потери организации от неисправного компьютера за 1 час&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Z</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLineEdit" name="zi_lineEdit">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>220</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>200, 200, 200</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLineEdit" name="z_lineEdit">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>220</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>350, 350, 350</string>
+       </property>
       </widget>
      </item>
     </layout>
