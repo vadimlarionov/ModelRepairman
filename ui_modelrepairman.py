@@ -12,6 +12,9 @@ class Ui_ModelRepairman(object):
     def setupUi(self, ModelRepairman):
         ModelRepairman.setObjectName("ModelRepairman")
         ModelRepairman.resize(1201, 575)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("worker.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        ModelRepairman.setWindowIcon(icon)
         self.gridLayout_2 = QtWidgets.QGridLayout(ModelRepairman)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtWidgets.QGridLayout()

@@ -81,7 +81,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         msg.setText('<font size=6>Проверьте входные данные</font>')
         msg.setInformativeText('<font size=5>Необходимо для каждого поля ввода ввести '
                                'целочисленные значения через запятую. '
-                               'Количество значений должно совпадать с количеством в '
+                               'Количество значений должно совпадать со значением в '
                                'поле "Кол-во вариантов"</font>')
         msg.setWindowTitle('Внимание')
         return msg
