@@ -13,7 +13,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         super(ModelRepairmanView, self).__init__()
         self.setupUi(self)
         self.calculateButton.clicked.connect(self.calculate)
-        self.calculateButton.click()
+        self.calculate()
 
     def add_row_to_table(self, parameter, variant_1, variant_2, variant_3):
         position = self.tableWidget.rowCount()
@@ -40,6 +40,8 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
             print(e)
             self.create_error_msg().show()
             return
+
+        Utils.set_precision(self.precision_lineEdit.text())
 
         model_1 = ModelRepairman(n[0], tno[0], to[0], c[0])
         model_2 = ModelRepairman(n[1], tno[1], to[1], c[1])
@@ -77,11 +79,9 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         self.add_row_to_table('Tp', model_1.broken_computer_time(),
                               model_2.broken_computer_time(),
                               model_3.broken_computer_time())
-
-        self.add_row_to_table('Tц', model_1.computer_cycle_time(),
+        self.add_row_to_table('Tц = Tр + tно', model_1.computer_cycle_time(),
                               model_2.computer_cycle_time(),
                               model_3.computer_cycle_time())
-
         self.add_row_to_table('ρe / ρo', model_1.ratio(),
                               model_2.ratio(),
                               model_3.ratio())
@@ -89,22 +89,6 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
                               '%.2f' % model_2.calculate_y(zi[1], z[1]),
                               '%.2f' % model_3.calculate_y(zi[2], z[2]))
         self.tableWidget.resizeColumnsToContents()
-
-    def parse_ci(self):
-        c = self.c_lineEdit.text()
-        return [int(x) for x in c.split(',')]
-
-    def parse_n(self):
-        n = self.n_lineEdit.text()
-        return [int(x) for x in n.split(',')]
-
-    def parse_tno(self):
-        tno = self.tno_lineEdit.text()
-        return [int(x) for x in tno.split(',')]
-
-    def parse_to(self):
-        to = self.to_lineEdit.text()
-        return [int(x) for x in to.split(',')]
 
     def create_error_msg(self):
         msg = QMessageBox(self)
