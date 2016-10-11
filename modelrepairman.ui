@@ -69,7 +69,7 @@
         </font>
        </property>
        <property name="text">
-        <string>800</string>
+        <string>1000</string>
        </property>
       </widget>
      </item>
@@ -156,7 +156,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
-        <string>100</string>
+        <string>10</string>
        </property>
       </widget>
      </item>
@@ -234,7 +234,7 @@
         </font>
        </property>
        <property name="text">
-        <string>8</string>
+        <string>10</string>
        </property>
       </widget>
      </item>

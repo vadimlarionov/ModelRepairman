@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt5.QtWidgets import QApplication, QDialog, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QDialog, QTableWidgetItem, QMessageBox
 from ui_modelrepairman import Ui_ModelRepairman
 from model_repairman import ModelRepairman
 from utils import Utils
@@ -28,9 +28,12 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         to = int(self.to_lineEdit.text())
         tno = int(self.tno_lineEdit.text())
 
-        c1 = 1
-        c2 = 2
-        c3 = 3
+        c1 = 2
+        c2 = 3
+        c3 = 4
+
+        si = 200
+        s = 350
 
         model = ModelRepairman(n, tno, to)
 
@@ -68,6 +71,9 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         self.add_row_to_table('ρe / ρo', model.ratio(c1),
                               model.ratio(c2),
                               model.ratio(c3))
+        self.add_row_to_table('Yi', '%.2f' % model.calculate_y(c1, si, s),
+                              '%.2f' % model.calculate_y(c2, si, s),
+                              '%.2f' % model.calculate_y(c3, si, s))
         self.tableWidget.resizeColumnsToContents()
 
 

@@ -82,3 +82,7 @@ class ModelRepairman:
     # ρe / ρo
     def ratio(self, c):
         return self.load_factor_computer(c) / self.load_factor_specialist(c)
+
+    # Yi
+    def calculate_y(self, c, si, s):
+        return c * si + self.broken_length(c) * s
