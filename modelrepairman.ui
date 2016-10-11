@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Модель ремонтника</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="1">
@@ -28,30 +28,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="3">
-      <widget class="QLineEdit" name="number_variants_lineEdit">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1" colspan="2">
       <widget class="QLabel" name="label_14">
        <property name="font">
@@ -60,7 +36,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Кол-во параметров</string>
+        <string>Кол-во вариантов</string>
        </property>
       </widget>
      </item>
@@ -71,7 +47,7 @@
          <pointsize>12</pointsize>
          <weight>75</weight>
          <bold>true</bold>
-         <underline>true</underline>
+         <underline>false</underline>
         </font>
        </property>
        <property name="text">
@@ -86,7 +62,7 @@
          <pointsize>12</pointsize>
          <weight>75</weight>
          <bold>true</bold>
-         <underline>true</underline>
+         <underline>false</underline>
         </font>
        </property>
        <property name="text">
@@ -99,7 +75,7 @@
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <italic>true</italic>
+         <italic>false</italic>
         </font>
        </property>
        <property name="text">
@@ -127,7 +103,7 @@
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <italic>true</italic>
+         <italic>false</italic>
         </font>
        </property>
        <property name="toolTip">
@@ -138,39 +114,12 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="4" colspan="2">
-      <widget class="QPushButton" name="calculateButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
-       </property>
-       <property name="text">
-        <string>Рассчитать</string>
-       </property>
-      </widget>
-     </item>
      <item row="4" column="1">
       <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <italic>true</italic>
+         <italic>false</italic>
         </font>
        </property>
        <property name="toolTip">
@@ -186,7 +135,7 @@
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <italic>true</italic>
+         <italic>false</italic>
         </font>
        </property>
        <property name="toolTip">
@@ -202,7 +151,7 @@
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <italic>true</italic>
+         <italic>false</italic>
         </font>
        </property>
        <property name="toolTip">
@@ -244,33 +193,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="2" column="7" rowspan="10">
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-       <property name="cornerButtonEnabled">
-        <bool>true</bool>
-       </property>
-       <attribute name="verticalHeaderVisible">
-        <bool>false</bool>
-       </attribute>
-      </widget>
      </item>
      <item row="5" column="4">
       <widget class="QLabel" name="label_6">
@@ -319,7 +241,7 @@
         </font>
        </property>
        <property name="text">
-        <string>шт.</string>
+        <string>чел.</string>
        </property>
       </widget>
      </item>
@@ -530,12 +452,108 @@
        </property>
       </widget>
      </item>
+     <item row="9" column="3">
+      <widget class="QPushButton" name="calculateButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Рассчитать</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLabel" name="label_15">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>шт.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QSpinBox" name="number_variants_spinBox">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="7" rowspan="11">
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLabel" name="label_16">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>шт.</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>number_variants_lineEdit</tabstop>
+  <tabstop>number_variants_spinBox</tabstop>
   <tabstop>c_lineEdit</tabstop>
   <tabstop>n_lineEdit</tabstop>
   <tabstop>tno_lineEdit</tabstop>

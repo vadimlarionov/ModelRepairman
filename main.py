@@ -32,7 +32,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
 
     def calculate(self):
         try:
-            number_variants = int(self.number_variants_lineEdit.text())
+            number_variants = int(self.number_variants_spinBox.text())
 
             c = Utils.to_int_list(self.c_lineEdit.text())
             n = Utils.to_int_list(self.n_lineEdit.text())
@@ -42,7 +42,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
             z = Utils.to_int_list(self.z_lineEdit.text())
 
             if not Utils.args_is_equals_len(c, n, tno, to, zi, z, size=number_variants):
-                print('Fail')
+                print('Parameters size is not equals')
                 self.create_error_msg().show()
                 return
         except ValueError as e:
@@ -80,8 +80,9 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         msg = QMessageBox(self)
         msg.setText('<font size=6>Проверьте входные данные</font>')
         msg.setInformativeText('<font size=5>Необходимо для каждого поля ввода ввести '
-                               'числовых значения через запятую. Количество значения должно совпадать с количеством в '
-                               'поле "Кол-во параметров</font>')
+                               'целочисленные значения через запятую. '
+                               'Количество значений должно совпадать с количеством в '
+                               'поле "Кол-во вариантов"</font>')
         msg.setWindowTitle('Внимание')
         return msg
 
