@@ -4,16 +4,20 @@ from math import factorial, pow
 
 
 class ModelRepairman:
-    def __init__(self, n, tno, to, c):
+    def __init__(self, n, tno, to, c, zi, z):
         """
         :param n: Количество компьютеров
         :param tno: Среднее время наработки на отказ одного компьютера
         :param to: Среднее время ремонта одного компьютера
+        :param zi: Заработная плата специалиста за 1 час
+        :param z: Финансовые потери организации от неисправного компьютера за 1 час
         """
         self.n = n
         self.tno = tno
         self.to = to
         self.c = c
+        self.zi = zi
+        self.z = z
 
         self.psi_value = None
         self.p0 = None
@@ -107,5 +111,6 @@ class ModelRepairman:
         return self.load_factor_computer() / self.load_factor_specialist()
 
     # Yi
-    def calculate_y(self, si, s):
-        return self.c * si + self.broken_length() * s
+    def calculate_y(self):
+        y = self.c * self.zi + self.broken_length() * self.z
+        return '%.2f' % y

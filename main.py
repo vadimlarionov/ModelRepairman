@@ -15,16 +15,25 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
         self.calculateButton.clicked.connect(self.calculate)
         self.calculate()
 
-    def add_row_to_table(self, parameter, variant_1, variant_2, variant_3):
-        position = self.tableWidget.rowCount()
-        self.tableWidget.insertRow(position)
-        self.tableWidget.setItem(position, 0, QTableWidgetItem(Utils.to_str(parameter)))
-        self.tableWidget.setItem(position, 1, QTableWidgetItem(Utils.to_str(variant_1)))
-        self.tableWidget.setItem(position, 2, QTableWidgetItem(Utils.to_str(variant_2)))
-        self.tableWidget.setItem(position, 3, QTableWidgetItem(Utils.to_str(variant_3)))
+    def create_table_headers(self, number_variants):
+        self.tableWidget.setColumnCount(number_variants + 1)
+        self.tableWidget.setHorizontalHeaderItem(0, QTableWidgetItem('Параметр'))
+        for x in range(1, number_variants + 1):
+            self.tableWidget.setHorizontalHeaderItem(x, QTableWidgetItem('Вариант ' + str(x)))
+
+    def add_row_to_table(self, parameter, *args):
+        row = self.tableWidget.rowCount()
+        self.tableWidget.insertRow(row)
+        self.tableWidget.setItem(row, 0, QTableWidgetItem(Utils.to_str(parameter)))
+        column = 1
+        for x in args:
+            self.tableWidget.setItem(row, column, QTableWidgetItem(Utils.to_str(x)))
+            column += 1
 
     def calculate(self):
         try:
+            number_variants = int(self.number_variants_lineEdit.text())
+
             c = Utils.to_int_list(self.c_lineEdit.text())
             n = Utils.to_int_list(self.n_lineEdit.text())
             tno = Utils.to_int_list(self.tno_lineEdit.text())
@@ -32,7 +41,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
             zi = Utils.to_int_list(self.zi_lineEdit.text())
             z = Utils.to_int_list(self.z_lineEdit.text())
 
-            if len(c) != 3 or len(n) != 3 or len(tno) != 3 or len(to) != 3:
+            if not Utils.args_is_equals_len(c, n, tno, to, zi, z, size=number_variants):
                 print('Fail')
                 self.create_error_msg().show()
                 return
@@ -43,59 +52,37 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
 
         Utils.set_precision(self.precision_lineEdit.text())
 
-        model_1 = ModelRepairman(n[0], tno[0], to[0], c[0])
-        model_2 = ModelRepairman(n[1], tno[1], to[1], c[1])
-        model_3 = ModelRepairman(n[2], tno[2], to[2], c[2])
+        models = []
+        for i in range(number_variants):
+            models.append(ModelRepairman(n[i], tno[i], to[i], c[i], zi[i], z[i]))
 
+        self.create_table_headers(number_variants)
         self.tableWidget.clearContents()
         self.tableWidget.setRowCount(0)
 
-        self.add_row_to_table('Количество ремонтников', 'c = ' + str(c[0]), 'c = ' + str(c[1]),
-                              'c = ' + str(c[2]))
-        self.add_row_to_table('P0', model_1.probability_initial_state(),
-                              model_2.probability_initial_state(),
-                              model_3.probability_initial_state())
-        self.add_row_to_table('Q', model_1.queue_length(),
-                              model_2.queue_length(),
-                              model_3.queue_length())
-        self.add_row_to_table('L', model_1.broken_length(),
-                              model_2.broken_length(),
-                              model_3.broken_length())
-        self.add_row_to_table('U = L - Q', model_1.computers_repair(),
-                              model_2.computers_repair(),
-                              model_3.computers_repair())
-        self.add_row_to_table('ρo = U / C', model_1.load_factor_specialist(),
-                              model_2.load_factor_specialist(),
-                              model_3.load_factor_specialist())
-        self.add_row_to_table('n = N - L', model_1.average_broken_computers(),
-                              model_2.average_broken_computers(),
-                              model_3.average_broken_computers())
-        self.add_row_to_table('ρe = n / N', model_1.load_factor_computer(),
-                              model_2.load_factor_computer(),
-                              model_3.load_factor_computer())
-        self.add_row_to_table('W', model_1.broken_computer_in_queue_time(),
-                              model_2.broken_computer_in_queue_time(),
-                              model_3.broken_computer_in_queue_time())
-        self.add_row_to_table('Tp', model_1.broken_computer_time(),
-                              model_2.broken_computer_time(),
-                              model_3.broken_computer_time())
-        self.add_row_to_table('Tц = Tр + tно', model_1.computer_cycle_time(),
-                              model_2.computer_cycle_time(),
-                              model_3.computer_cycle_time())
-        self.add_row_to_table('ρe / ρo', model_1.ratio(),
-                              model_2.ratio(),
-                              model_3.ratio())
-        self.add_row_to_table('Yi', '%.2f' % model_1.calculate_y(zi[0], z[0]),
-                              '%.2f' % model_2.calculate_y(zi[1], z[1]),
-                              '%.2f' % model_3.calculate_y(zi[2], z[2]))
+        self.add_row_to_table('Количество ремонтников', *['c = ' + str(x) for x in c])
+        self.add_row_to_table('P0', *[model.probability_initial_state() for model in models])
+        self.add_row_to_table('Q', *[model.queue_length() for model in models])
+        self.add_row_to_table('L', *[model.broken_length() for model in models])
+        self.add_row_to_table('U = L - Q', *[model.computers_repair() for model in models])
+        self.add_row_to_table('ρo = U / C', *[model.load_factor_specialist() for model in models])
+        self.add_row_to_table('n = N - L', *[model.average_broken_computers() for model in models])
+        self.add_row_to_table('ρe = n / N', *[model.load_factor_computer() for model in models])
+        self.add_row_to_table('W', *[model.broken_computer_in_queue_time() for model in models])
+        self.add_row_to_table('Tр', *[model.broken_computer_time() for model in models])
+        self.add_row_to_table('Tц = Tр + tно', *[model.computer_cycle_time() for model in models])
+        self.add_row_to_table('ρe / ρo', *[model.ratio() for model in models])
+        self.add_row_to_table('Yi', *[model.calculate_y() for model in models])
+
         self.tableWidget.resizeColumnsToContents()
 
     def create_error_msg(self):
         msg = QMessageBox(self)
-        msg.setText("Проверьте входные данные")
-        msg.setInformativeText("Необходимо для каждого поля ввода ввести 3 "
-                               "числовых значения через запятую")
-        msg.setWindowTitle("Внимание")
+        msg.setText('<font size=6>Проверьте входные данные</font>')
+        msg.setInformativeText('<font size=5>Необходимо для каждого поля ввода ввести '
+                               'числовых значения через запятую. Количество значения должно совпадать с количеством в '
+                               'поле "Кол-во параметров</font>')
+        msg.setWindowTitle('Внимание')
         return msg
 
 if __name__ == '__main__':

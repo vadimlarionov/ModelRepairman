@@ -24,3 +24,14 @@ class Utils:
     @staticmethod
     def to_int_list(line):
         return [int(x) for x in line.split(',')]
+
+    @staticmethod
+    def args_is_equals_len(*args, size=None):
+        if len(args) == 0:
+            return True
+        if size is None:
+            size = len(args)
+        for x in args:
+            if len(x) != size:
+                return False
+        return True
