@@ -268,6 +268,7 @@ class Ui_ModelRepairman(object):
         self.label_14.setText(_translate("ModelRepairman", "Кол-во вариантов"))
         self.label_4.setText(_translate("ModelRepairman", "Исходные данные"))
         self.label_7.setText(_translate("ModelRepairman", "Результаты"))
+        self.label_8.setToolTip(_translate("ModelRepairman", "<html><head/><body><p>Количество ремонтников</p></body></html>"))
         self.label_8.setText(_translate("ModelRepairman", "Ci"))
         self.label_9.setToolTip(_translate("ModelRepairman", "<html><head/><body><p>Заработная плата специалиста за 1 час</p></body></html>"))
         self.label_9.setText(_translate("ModelRepairman", "Zi"))
