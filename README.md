@@ -7,6 +7,7 @@
 #### Requirements
 * Python 3.5.2
 * Qt Creator 5.7
+  
 #### Порядок установки
 1. Устанавливаем Python, если его нет;
 2. Скачиваем [Qt Creator](https://www.qt.io/download-open-source/). Именно Creator, т.к. все библиотеки Qt нам не нужны;
