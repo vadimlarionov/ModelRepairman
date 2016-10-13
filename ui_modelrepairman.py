@@ -160,7 +160,7 @@ class Ui_ModelRepairman(object):
         self.n_lineEdit.setMinimumSize(QtCore.QSize(120, 0))
         self.n_lineEdit.setMaximumSize(QtCore.QSize(220, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(11)
+        font.setPointSize(12)
         self.n_lineEdit.setFont(font)
         self.n_lineEdit.setObjectName("n_lineEdit")
         self.gridLayout.addWidget(self.n_lineEdit, 3, 2, 1, 2)

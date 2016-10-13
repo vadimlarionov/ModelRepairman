@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QDialog, QTableWidgetItem, QMessageBox
 from ui_modelrepairman import Ui_ModelRepairman
 from model_repairman import ModelRepairman
@@ -89,5 +90,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = ModelRepairmanView()
+    window.setWindowFlags(window.windowFlags() | QtCore.Qt.WindowMinimizeButtonHint |
+                          QtCore.Qt.WindowMaximizeButtonHint)
     window.show()
     sys.exit(app.exec_())
