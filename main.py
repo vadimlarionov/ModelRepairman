@@ -9,7 +9,6 @@ from utils import Utils
 
 
 class ModelRepairmanView(QDialog, Ui_ModelRepairman):
-
     def __init__(self):
         super(ModelRepairmanView, self).__init__()
         self.setupUi(self)
@@ -86,6 +85,7 @@ class ModelRepairmanView(QDialog, Ui_ModelRepairman):
                                'поле "Кол-во вариантов"</font>')
         msg.setWindowTitle('Внимание')
         return msg
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
