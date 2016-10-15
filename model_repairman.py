@@ -51,8 +51,11 @@ class ModelRepairman:
     # Pk
     def probability_kth_state(self, k):
         c = self.c
-        return factorial(self.n) * pow(self.psi(), k) * self.probability_initial_state() / \
-               (pow(c, k - c) * factorial(c) * factorial(self.n - k))
+        value = factorial(self.n) * pow(self.psi(), k) * self.probability_initial_state()
+        if k <= c:
+            return value / (factorial(k) * factorial(self.n - k))
+        else:
+            return value / (pow(c, k - c) * factorial(c) * factorial(self.n - k))
 
     # Q
     def queue_length(self):

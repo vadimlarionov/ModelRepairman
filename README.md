@@ -22,7 +22,7 @@
 В открывшемся окне справа переименовать форму (объект) в YourWindow. Тогда генерируемый *ui_yourwindow.py* файл будет содержать класс *Ui_YourWindow*.
 
 ##### В PyCharm
-*File* -> *Settings* -> В поиске пишем "File watcher" -> *import*. В открывшемся окне выбираем [watcherTasks.xml](./conf/watcherTasks.xml). Затем открываем добавившийся "Qt Ui to Python". В графе *program* указываем путь к pyic5 (`which pyuic5`).
+*File* -> *Settings* -> В поиске пишем "File watcher" -> *import*. В открывшемся окне выбираем [qtuitopython_filewatcher.xml](./conf/qtuitopython_filewatcher.xml). Затем открываем добавившийся "Qt Ui to Python". В графе *program* указываем путь к pyic5 (`which pyuic5`).
 
 Теперь File Watcher отслеживает все изменения *.ui файлов в папке с проектом и генерирует на их основе .py файлы.
 

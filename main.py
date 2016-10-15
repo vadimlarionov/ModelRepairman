@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 
 import sys
+
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QDialog, QTableWidgetItem, QMessageBox
-from ui_modelrepairman import Ui_ModelRepairman
+
 from model_repairman import ModelRepairman
+from ui_modelrepairman import Ui_ModelRepairman
 from utils import Utils
 
 
 class ModelRepairmanView(QDialog, Ui_ModelRepairman):
     def __init__(self):
-        super(ModelRepairmanView, self).__init__()
+        super().__init__()
         self.setupUi(self)
         self.calculateButton.clicked.connect(self.calculate)
         self.calculate()

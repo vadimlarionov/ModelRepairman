@@ -2,7 +2,6 @@
 
 
 class Utils:
-
     precision = 5
 
     @staticmethod
